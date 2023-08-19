@@ -70,8 +70,7 @@ build {
 
   provisioner "shell" {
     scripts = [
-      "./vagrant_user.sh",
-      "./install.sh"
+      "../scripts/ansible-install.sh",
       ]
   }
 
