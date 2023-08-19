@@ -13,7 +13,7 @@ packer {
 source "qemu" "kvm-standard" {
   iso_url           = "https://releases.ubuntu.com/jammy/ubuntu-22.04.3-live-server-amd64.iso"
   iso_checksum      = "file:https://releases.ubuntu.com/jammy/SHA256SUMS"
-  output_directory = ansible-master-box
+  output_directory  = "ansible-master-box"
   shutdown_command  = "echo 'packer' | sudo -S shutdown -P now"
   disk_size         = "10000"
   memory            = "3000"
