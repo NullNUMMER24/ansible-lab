@@ -1,11 +1,11 @@
 packer {
-  require_plugins {
+  required_plugins {
     qemu = {
-      souce = "github.com/hashicorp/qemu"
+      source  = "github.com/hashicorp/qemu"
       version = "~> 1"
     }
     vagrant = {
-      souce = "github.com/hashicorp/vagrant"
+      source  = "github.com/hashicorp/vagrant"
       version = "~> 1"
     }
   }
