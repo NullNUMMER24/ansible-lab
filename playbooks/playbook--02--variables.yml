@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  vars:
+    - username: NullNUMMER24
+    - home: Earth
+  tasks:
+    - name: print variables
+      debug:
+        msg: "Username: {{username}}, home planet: {{home}}"
+

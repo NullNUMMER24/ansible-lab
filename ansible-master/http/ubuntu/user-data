@@ -5,8 +5,8 @@ autoinstall:
     update: true
     channel: 'stable'
   identity:
-    hostname: ubuntu-vm
-    password: "$6$exDY1mhS4KUYCE/2$zmn9ToZwTKLhCw.b4/b.ZRTIZM30JZ4QrOQ2aOXJ8yk96xpcCof0kxKwuX1kqLG/ygbJ1f8wxED22bTL4F46P0"
+    hostname: ansible-master
+    password: "Pa$$w0rd"
     username: vagrant
   early-commands:
     - systemctl stop ssh
@@ -21,6 +21,6 @@ autoinstall:
     - curl
   late-commands:
     - sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /target/etc/ssh/sshd_config
-    - curtin in-target --target=/target -- usermod -p '$1$joXJVjfY$5z4UkZMrp9g3hjv3Tph9//' root
+    - curtin in-target --target=/target -- usermod -p '$1$joXJVjfY$5z4UkZMrp9g3hjv3Tph9//' root 
   user-data:
     disable_root: false

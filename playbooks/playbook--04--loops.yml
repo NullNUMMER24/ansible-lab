@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  tasks:
+    - name: creates files
+      file:
+        path: /tmp/ansible-{{ item }}
+        state: touch
+      loop:
+        - NullNUMMER24
+        - Steve
+        - Rick
