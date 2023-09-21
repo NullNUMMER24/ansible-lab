@@ -1,0 +1,7 @@
+[win]
+192.168.56.4
+
+[win:vars]
+ansible_password=vagrant
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
