@@ -1,0 +1,26 @@
+---
+- name: setupWindows
+  hosts: windows
+  become: true
+  gather_facts: true
+  tasks:
+    - name: scriptsFolder
+      ansible.windows.win_file:
+        path: C:\scripts
+        state: directory
+    - name: copySyncTime
+      ansible.windows.win_copy:
+        src: /home/$user/git/ansible-lab/windows/scripts/syncTime.ps1
+        dest: C:\scripts\syncTime.ps1
+    - name: create Time tasks
+      community.windows.win_scheduled_task:
+        name: syncTime
+        description: Runs a PowerShell script
+        actions:
+          - path: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+            arguments: -ExecutionPolicy Unrestricted -NonInteractive -File C:\scripts\syncTime.ps1
+        triggers:
+          - type: boot
+            username: SYSTEM
+            run_level: highest
+            state: present
