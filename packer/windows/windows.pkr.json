@@ -1,0 +1,31 @@
+"builders": [
+    {
+        "boot_wait": "6m",
+        "communicator": "winrm",
+        "cpu": "2",
+        "disk_size": "",
+        "floppy_files": [
+            "./answer_files/autounattend.xml",
+            "./floppy/WindowsPowershell.lnk",
+            "./floppy/PinTo10.exe",
+            "./scripts/fixnetwork.ps1",
+            "./scripts/disable-screensaver.ps1",
+            "./scripts/disable-winrm.ps1",
+            "./scripts/enable-winrm.ps1",
+            "./scripts/microsoft-updates.bat",
+            "./scripts/win-updates.ps1"
+        ],
+        "guest_additions_mode": "none",
+        "iso_checksum": "",
+        "iso_checksum_type": "",
+        "iso_url": "https://software.download.prss.microsoft.com/dbazure/Win11_22H2_English_x64v2.iso?t=d32efdba-dbec-433e-ba70-196da1a91d9a&e=1696358177&h=cde3d9b45d5e878b5dfb14dd380704eff479840a773c40114dc9bdf8cd66299d",
+        "ram_size": "2048",
+        "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+        "switch_name": "",
+        "type": "hyperv-iso",
+        "vm_name": "windows_11",
+        "winrm_password": "vagrant",
+        "winrm_timeout": "",
+        "winrm_username": "vagrant"
+    }
+]
