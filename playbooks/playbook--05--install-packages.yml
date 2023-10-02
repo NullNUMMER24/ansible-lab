@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+    - name: installation
+      pacman:
+        name:
+          - obsidian
+          - spotify
+        state: latest

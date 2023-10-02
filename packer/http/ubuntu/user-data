@@ -1,0 +1,21 @@
+#cloud-config
+autoinstall:
+  version: 1
+  refresh-installer:
+    update: true
+    channel: 'stable'
+  identity:
+    hostname: ubuntu-vm
+    password: "$6$rounds=4096$salt12345$2XMJDaZ4ElETK.HuETOpBdxyVVQmI1LmB6v8ZdJfiMWw5Oj/XYbC/GwHG7S1xS/kAsZZQF5k5pbgfUw88bAa9B1"
+    username: vagrant
+  early-commands:
+    - systemctl stop ssh
+  locale: en_US
+  keyboard:
+    layout: ch
+  ssh:
+    install-server: true
+    allow-pw: true
+  packages:
+    - sudo
+    - curl

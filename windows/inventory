@@ -1,0 +1,7 @@
+[windows]
+windows11 ansible_host=
+[windows:vars]
+ansible_user=NullNUMMER24
+ansible_password=Pa$$w0rd
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
