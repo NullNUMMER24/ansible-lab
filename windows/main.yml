@@ -1,0 +1,31 @@
+---
+- name: "Setup windows client"
+  hosts: Windows
+  become: yes
+  tasks:
+    - name: "Create files folder"
+      ansible.windows.win_file:
+        path: C:\files
+        state: directory
+    - name: "Copy background"
+      ansible.windows.win_copy:
+        src: /home/$USER/git/ansible-lab/windows/ressouces/background.png
+        dest: C:\files\background.png
+    - name: "Change wallpaper"
+      ansible.windows.win_powershell:
+        script: |
+          reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d C:\files\background.png /f
+    - name: "Copy time sync script"
+      ansible.windows.win_copy:
+        src: /home/$USER/git/ansible-lab/windows/ressouces/syncTime.ps1
+        dest: C:\files\syncTime.ps1
+    - name: "Create syncTime task"
+      win_scheduled_task:
+        name: syncTime
+        description: "Sync time at boot"
+        actions:
+        - path: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+          arguments: -ExecutionPolicy Unrestricted -NonInteractive -File C:\files\syncTime.ps1
+        enabled: yes
+        execution_time_limit: PT0S
+
